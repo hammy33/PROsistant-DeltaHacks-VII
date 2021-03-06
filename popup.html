@@ -27,7 +27,7 @@
         margin: 0;
         min-height: 500px;
         padding: 0;
-        width: 420px;
+        width: 470px;
       }
 
       h1 {
@@ -144,10 +144,10 @@
 
   <body>
     <div class="tab">
-      <button class=<tablinks" onclick="openPopUp(event, 'Home')">Home</button>
-      <button class="tablinks" onclick="openPopUp(event, 'Timer')">Timer</button>
-      <button class="tablinks" onclick="openPopUp(event, 'Create Event')">Set Event</button>
-      <button class="tablinks" onclick="openPopUp(event, 'Reminders')">Reminders</button>
+      <button class="tablinks" id="HomeButton">Home</button>
+      <button class="tablinks" id="TimerButton">Timer</button>
+      <button class="tablinks" id="CreateEventButton">Create Event</button>
+      <button class="tablinks" id="RemindersButton">Reminders</button>
     </div>
     <div id="Home" class="tabcontent">
       <div class="modal-header">
@@ -171,10 +171,11 @@
       </h1>
     </div>
     <div class="modal-content">
-      <p> Need a break? Set a timer and we'll bring you back to this tab when your break is over! </p>
+      <p> Need a break? Set a timer and I'll bring you back to this tab when your break is over! </p>
       <form>
     	<label for="Timer">Set a Timer:</label>
     	<input type="text" name="Timer" id="Timer">
+    	<input type="submit">
 	  </form>
     </div>
     </div>
@@ -201,7 +202,7 @@
         <input type="time" name="clock" id="clock">
     </form>
     <form>
-        <label for="name">Website you would like:</label>
+        <label for="name">Website URL:</label>
         <input type="text" name="name" id="name">
     </form>
     </div>
@@ -216,20 +217,7 @@
     <div class="modal-content">
       <p>Upcoming Events </p>
     </div>
-    <script>
-    function openPopUp(evt, Name) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(Name).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
+    <script src="popup.js">
     </script>
   </body>
 </html>
