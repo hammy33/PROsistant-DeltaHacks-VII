@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to PROsistant</title>
+    <title>Welcome to ProSistant</title>
     <link
-      href="https://fonts.googleapis.com/css?family=B612"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300&display=swap"
       rel="stylesheet"
       type="text/css"
     />
@@ -13,22 +13,26 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300&family=Mukta+Malar:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       /* Modal Structure */
 
       html,
       body {
-        font-family: "B612", sans-serif;
+        font-family: 'Barlow Semi Condensed', sans-serif;
         font-size: 14px;
         margin: 0;
-        min-height: 380px;
+        min-height: 500px;
         padding: 0;
-        width: 384px;
+        width: 420px;
       }
 
       h1 {
-        font-family: "Menlo", monospace;
-        font-size: 22px;
+        font-family: 'Mukta Malar', sans-serif;
+        font-size: 30px;
         font-weight: 400;
         margin: 0;
         color: #2f5876;
@@ -100,7 +104,7 @@
       .tab {
         overflow: hidden;
         border: 1px solid #ccc;
-        background-color: #f1f1f1;
+        background-color: #FDE710;
       }
 
       /* Style the buttons inside the tab */
@@ -140,36 +144,72 @@
 
   <body>
     <div class="tab">
+      <button class=<tablinks" onclick="openPopUp(event, 'Home')">Home</button>
       <button class="tablinks" onclick="openPopUp(event, 'Timer')">Timer</button>
-      <button class="tablinks" onclick="openPopUp(event, 'Set Event')">Set Event</button>
+      <button class="tablinks" onclick="openPopUp(event, 'Create Event')">Set Event</button>
       <button class="tablinks" onclick="openPopUp(event, 'Reminders')">Reminders</button>
     </div>
-    <div id="Timer" class="tabcontent">
+    <div id="Home" class="tabcontent">
       <div class="modal-header">
       <h1 class="logo">
-        <img class="logo-icon" src="ProSistentLogo.png" /> PROsistant
+        <img class="logo-icon" src="ProSistentLogo.png" /> ProSistant
         <span class="version">(1.0)</span>
       </h1>
     </div>
     <div class="modal-content">
-      <p>How long is your break? </p>
+      <p style="border:10px; border-style:solid; border-color:#FDE710; padding: 1em;">Welcome to <b>ProSistant</b>!<br> I am your very own online Productivity Assistant.</p>
+        <p>I'm here to ensure you stay on track, effortlessly. </p>
+        <p>Use the timer function to allot yourself a break, and when your break is over, I'll take care of bringing you back to your task </p>
+        <p>I'll also keep track of all of your events, so you don't have to! </p>
     </div>
     </div>
-    <div id="Set Event" class="tabcontent">
+    <div id="Timer" class="tabcontent">
       <div class="modal-header">
       <h1 class="logo">
-        <img class="logo-icon" src="ProSistentLogo.png" /> PROsistant
+        <img class="logo-icon" src="ProSistentLogo.png" /> ProSistant
+        <span class="version">(1.0)</span>
+      </h1>
+    </div>
+    <div class="modal-content">
+      <p> Need a break? Set a timer and we'll bring you back to this tab when your break is over! </p>
+      <form>
+    	<label for="Timer">Set a Timer:</label>
+    	<input type="text" name="Timer" id="Timer">
+	  </form>
+    </div>
+    </div>
+    <div id="Create Event" class="tabcontent">
+      <div class="modal-header">
+      <h1 class="logo">
+        <img class="logo-icon" src="ProSistentLogo.png" /> ProSistant
         <span class="version">(1.0)</span>
       </h1>
     </div>
     <div class="modal-content">
       <p>Create a New Event </p>
+	    <form>
+	        <label for="name">Name of Event:</label>
+	        <input type="text" name="name" id="name">
+	    </form>
+	    <form action="/action_page.php">
+	        <label for="event">Date of Event:</label>
+	        <input type="date" id="event" name="event">
+	        <input type="submit">
+	    </form>
+	    <form>
+	        <label for="clock">Time of Event:</label>
+	        <input type="time" name="clock" id="clock">
+	    </form>
+	    <form>
+	        <label for="name">Website you would like:</label>
+	        <input type="text" name="name" id="name">
+	    </form>
     </div>
     </div>
     <div id="Reminders" class="tabcontent">
       <div class="modal-header">
       <h1 class="logo">
-        <img class="logo-icon" src="ProSistentLogo.png" /> PROsistant
+        <img class="logo-icon" src="ProSistentLogo.png" /> ProSistant
         <span class="version">(1.0)</span>
       </h1>
     </div>
