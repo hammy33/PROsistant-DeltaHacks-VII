@@ -140,9 +140,9 @@
 
   <body>
     <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'Timer')">Timer</button>
-      <button class="tablinks" onclick="openCity(event, 'Set Event')">Set Event</button>
-      <button class="tablinks" onclick="openCity(event, 'Reminders')">Reminders</button>
+      <button class="tablinks" onclick="openPopUp(event, 'Timer')">Timer</button>
+      <button class="tablinks" onclick="openPopUp(event, 'Set Event')">Set Event</button>
+      <button class="tablinks" onclick="openPopUp(event, 'Reminders')">Reminders</button>
     </div>
     <div id="Timer" class="tabcontent">
       <div class="modal-header">
@@ -154,39 +154,30 @@
     <div class="modal-content">
       <p>How long is your break? </p>
     </div>
-    <div class="modal-icons">
-      <div class="flex-container">
-        <div class="flex">
-          <a href="https://www.traversymedia.com" target="_blank">
-            <i class="fa fa-sticky-note" style="color:rgb(122, 155, 233) "></i>
-          </a>
-        </div>
-        <div class="flex">
-          <a href="https://avenue.mcmaster.ca/" target="_blank">
-            <i class="fa fa-check-square-o" style="color:rgb(122, 155, 233) ">
-            </i>
-          </a>
-        </div>
-        <div class="flex">
-          <a href="https://www.twitter.com/traversymedia" target="_blank">
-            <i class="fa fa-calendar-plus-o" style="color:rgb(122, 155, 233) ">
-            </i>
-          </a>
-        </div>
-        <div class="flex">
-          <a href="https://www.facebook.com/traversymedia" target="_blank">
-            <i class="fa fa-clock-o" style="color:rgb(122, 155, 233) "></i>
-          </a>
-        </div>
-        <div class="flex">
-          <a href="https://www.github.com/bradtraversy" target="_blank">
-            <i class="fa fa-desktop" style="color:rgb(122, 155, 233) "></i>
-          </a>
-        </div>
-      </div>
     </div>
-  <script>
-    function openCity(evt, cityName) {
+    <div id="Set Event" class="tabcontent">
+      <div class="modal-header">
+      <h1 class="logo">
+        <img class="logo-icon" src="ProSistentLogo.png" /> PROsistant
+        <span class="version">(1.0)</span>
+      </h1>
+    </div>
+    <div class="modal-content">
+      <p>Create a New Event </p>
+    </div>
+    </div>
+    <div id="Reminders" class="tabcontent">
+      <div class="modal-header">
+      <h1 class="logo">
+        <img class="logo-icon" src="ProSistentLogo.png" /> PROsistant
+        <span class="version">(1.0)</span>
+      </h1>
+    </div>
+    <div class="modal-content">
+      <p>Upcoming Events </p>
+    </div>
+    <script>
+    function openPopUp(evt, Name) {
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {
@@ -196,9 +187,9 @@
       for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
       }
-      document.getElementById(cityName).style.display = "block";
+      document.getElementById(Name).style.display = "block";
       evt.currentTarget.className += " active";
     }
-  </script>
+    </script>
   </body>
 </html>
