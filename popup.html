@@ -144,10 +144,10 @@
 
   <body>
     <div class="tab">
-      <button class=<tablinks" onclick="openPopUp(event, 'Home')">Home</button>
-      <button class="tablinks" onclick="openPopUp(event, 'Timer')">Timer</button>
-      <button class="tablinks" onclick="openPopUp(event, 'Create Event')">Set Event</button>
-      <button class="tablinks" onclick="openPopUp(event, 'Reminders')">Reminders</button>
+      <button class="tablinks" id="HomeButton">Home</button>
+      <button class="tablinks" id="TimerButton">Timer</button>
+      <button class="tablinks" id="CreateEventButton">Set Event</button>
+      <button class="tablinks" id="RemindersButton">Reminders</button>
     </div>
     <div id="Home" class="tabcontent">
       <div class="modal-header">
@@ -216,20 +216,6 @@
     <div class="modal-content">
       <p>Upcoming Events </p>
     </div>
-    <script>
-    function openPopUp(evt, Name) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(Name).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-    </script>
+    <script src=popup.js></script>
   </body>
 </html>
