@@ -46,14 +46,12 @@
     
     
   }
-
-
   window.onload=function(){
-    var myInput=document.createElement("input");
+    var myInput=document.createElement("Timer");
     myInput.setAttribute("type","text");
     myInput.setAttribute("id","minutes");
     
-    var myButton=document.createElement("input");
+    var myButton=document.createElement("submit");
     myButton.setAttribute("type","button");
     myButton.setAttribute("value","submit");
     
