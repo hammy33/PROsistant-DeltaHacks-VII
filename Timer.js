@@ -34,7 +34,7 @@
     
   }
   function startCounter(){
-    var myInput=document.getElementById("Timer").value;
+    var myInput=document.getElementById("minutes").value;
     if (isNaN(myInput)){
       alert("Type a valid number please");
       return;
