@@ -40,7 +40,7 @@
     }
     mySeconds=myInput*60;
 
-    intervalHandle=setInterval(tick, 1000);
+    intervalHandle=setInterval(tick, 500);
 
     document.getElementById("inputArea").style.display="none";
   }
