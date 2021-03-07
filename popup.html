@@ -151,6 +151,7 @@
       <button class="tablinks" id="CreateEventButton">Create Event</button>
       <button class="tablinks" id="RemindersButton">Reminders</button>
     </div>
+
     <div id="Home" class="tabcontent" style="display:block">
       <div class="modal-header">
         <h1 class="logo">
@@ -165,6 +166,7 @@
         <p>I'll also keep track of all of your events, so you don't have to! </p>
       </div>
     </div>
+
     <div id="Timer" class="tabcontent" style="display:none">
       <div class="modal-header">
         <h1 class="logo">
@@ -178,10 +180,11 @@
       	<p> Set Timer (in minutes) </p>
         <!-- <label for="Timer">Time (in minutes):</label>
     	  <input type="text" name="Timer" id="Timer"> -->
-	      <script src="Timer.js">
+	      <script src="timer.js">
 	      </script>
       </div>
     </div>
+
     <div id="Create Event" class="tabcontent" style="display:none">
       <div class="modal-header">
         <h1 class="logo">
@@ -195,23 +198,24 @@
         <h1>Create a New Event </h1>
         <form>
           <label for="name">Name of Event:</label>
-          <input type="text" name="name" id="name">
+          <input type="text" name="name" id="nameInput">
         </form>
         <form action="/action_page.php">
           <label for="event">Date of Event:</label>
-          <input type="date" id="event" name="event">
+          <input type="date" name="event" id="eventInput">
         </form>
         <form>
           <label for="clock">Time of Event:</label>
-          <input type="time" name="clock" id="clock">
+          <input type="time" name="clock" id="clockInput">
         </form>
         <form>
-          <label for="name">Website URL:</label>
-          <input type="text" name="name" id="name">
+          <label for="url">Website URL:</label>
+          <input type="text" name="name" id="urlInput">
           <input type="submit">
         </form>
       </div>
     </div>
+
     <div id="Reminders" class="tabcontent" style="display:none">
       <div class="modal-header">
         <h1 class="logo">

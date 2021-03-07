@@ -3,55 +3,46 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
    var activeTabId = activeTab.url; 
 });
 
-var mySeconds;
-var intervalHandle;
-
-function resetPage(){
-  document.getElementById("Timer").style.display="none";  
-};
-
-function tick(){
-  var timeDisplay=document.getElementById("time");
-  var min=Math.floor(mySeconds/60);
-  var sec=mySeconds-(min*60);
-
-  if (sec < 10) {
-    sec="0"+sec;
-  };
-
-  var message=min.toString()+":"+sec;
-  timeDisplay.innerHTML=message;
-
-  if(mySeconds===0){
-    chrome.tabs.update({activeTabId});
-  };
-  mySeconds--;
-};
-
-function startCounter() {
-  var myInput=document.getElementById("minutes").value;
-  if (isNaN(myInput)) {
-    alert("Type a valid number please");
-    return;
-  };
-  mySeconds=myInput*60;
-  intervalHandle=setInterval(tick, 1000);
-  document.getElementById("inputArea").style.display="none";
-};
-
-window.onload=function(){
-  var myInput=document.createElement("input");
+window.onload = function() {
+  // Dynamically created HTML
+  var myInput = document.createElement("input");
   myInput.setAttribute("type","text");
-  myInput.setAttribute("id","minutes");
+  myInput.setAttribute("id","minuteInput");
 
-  var myButton=document.createElement("input");
+  var myButton = document.createElement("input");
   myButton.setAttribute("type","button");
   myButton.setAttribute("value","submit");
 
-  myButton.onclick=function(){
-    startCounter();
+  myButton.onclick = function() {
+    var initSeconds = myInput.value * 60;
+    chrome.storage.sync.set({"initialTime": initSeconds}, function() {
+      console.log("Initial Time for timer: " + initSeconds);
+      startCounter(initSeconds);
+    };
   };
   document.getElementById("Timer").appendChild(myInput);
   document.getElementById("Timer").appendChild(myButton);
 };
 
+function startCounter(seconds) {
+  if (isNaN(seconds)) {
+    alert("Type a valid number please");
+    return;
+  };
+  var intervalHandle = setInterval(tick, 1000);
+  document.getElementById("minuteInput").value = "";
+};
+
+function tick(){
+  var timeDisplay=document.getElementById("TimerButton");
+  
+  chrome.storage.sync.get("time", function(sec) {
+    var min = Math.floor(sec / 60);
+    var message = min.toString() + ":" + sec;
+    timeDisplay.innerHTML = message;
+  });
+};
+
+function resetPage(){
+  document.getElementById("Timer").style.display="none";  
+};
