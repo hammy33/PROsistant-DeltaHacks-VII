@@ -17,7 +17,11 @@
     var min=Math.floor(mySeconds/60);
     var sec=mySeconds-(min*60);
 
-    if (sec < 10) {
+
+    if (min == 0) and (sec == 0){
+      break
+    }
+    else if(sec < 10) {
       sec="0"+sec;
     }
 
@@ -40,7 +44,7 @@
     }
     mySeconds=myInput*60;
 
-    intervalHandle=setInterval(tick, 500);
+    intervalHandle=setInterval(tick, 1000);
 
     document.getElementById("inputArea").style.display="none";
   }
