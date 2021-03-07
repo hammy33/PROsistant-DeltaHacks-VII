@@ -80,7 +80,7 @@
     
     intervalHandle=setInterval(tick, 1000);
     
-    document.getElementById("inputArea").style.display="none";
+    document.getElementById("inputArea").style.display="Your break is up!";
     
     
   }
