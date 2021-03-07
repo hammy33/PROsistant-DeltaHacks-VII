@@ -3,16 +3,17 @@
      var activeTabId = activeTab.url; 
 
   });
+
   var mySeconds;
   var intervalHandle;
 
   function resetPage(){
-    document.getElementById("inputArea").style.display="none";  
+    document.getElementById("Timer").style.display="none";  
     
     
   }
   function tick(){
-    var timeDisplay=document.getElementById("time");
+    var timeDisplay=document.getElementById("Timer");
     
     var min=Math.floor(mySeconds/60);
     var sec=mySeconds-(min*60);
@@ -26,14 +27,16 @@
     timeDisplay.innerHTML=message;
     
     if(mySeconds===0){
-      chrome.tabs.update(activeTabId)
+      alert("Done");
+      clearInterval(intervalHandle);
+      resetPage();
     }
     mySeconds--;
     
     
   }
   function startCounter(){
-    var myInput=document.getElementById("minutes").value;
+    var myInput=document.getElementById("Timer").value;
     if (isNaN(myInput)){
       alert("Type a valid number please");
       return;
@@ -42,12 +45,14 @@
     
     intervalHandle=setInterval(tick, 1000);
     
-    document.getElementById("inputArea").style.display="none";
+    document.getElementById("Timer").style.display="none";
     
     
   }
+
+
   window.onload=function(){
-    var myInput=document.createElement("Timer");
+    var myInput=document.createElement("Time");
     myInput.setAttribute("type","text");
     myInput.setAttribute("id","minutes");
     
@@ -64,3 +69,4 @@
     
     
   }
+
