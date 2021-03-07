@@ -32,6 +32,6 @@ function tick() {
     chrome.storage.sync.set({"timeMinutes": min});
     chrome.storage.sync.set({"timeSeconds": sec});
     chrome.runtime.sendMessage({greeting: 'b'});
-
+    console.log(min, sec);
     mySeconds--;
 };
