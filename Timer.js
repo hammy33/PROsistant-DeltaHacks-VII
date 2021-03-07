@@ -1,67 +1,57 @@
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-     var activeTab = tabs[0];
-     var activeTabId = activeTab.url; 
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+   var activeTab = tabs[0];
+   var activeTabId = activeTab.url; 
+});
 
-  });
-  var mySeconds;
-  var intervalHandle;
+var mySeconds;
+var intervalHandle;
 
-  function resetPage(){
-    document.getElementById("Timer").style.display="none";  
+function resetPage(){
+  document.getElementById("Timer").style.display="none";  
+};
 
+function tick(){
+  var timeDisplay=document.getElementById("time");
+  var min=Math.floor(mySeconds/60);
+  var sec=mySeconds-(min*60);
 
-  }
-  function tick(){
-    var timeDisplay=document.getElementById("time");
+  if (sec < 10) {
+    sec="0"+sec;
+  };
 
-    var min=Math.floor(mySeconds/60);
-    var sec=mySeconds-(min*60);
+  var message=min.toString()+":"+sec;
+  timeDisplay.innerHTML=message;
 
-    if (sec < 10) {
-      sec="0"+sec;
-    }
+  if(mySeconds===0){
+    chrome.tabs.update({activeTabId});
+  };
+  mySeconds--;
+};
 
-    var message=min.toString()+":"+sec;
+function startCounter() {
+  var myInput=document.getElementById("minutes").value;
+  if (isNaN(myInput)) {
+    alert("Type a valid number please");
+    return;
+  };
+  mySeconds=myInput*60;
+  intervalHandle=setInterval(tick, 1000);
+  document.getElementById("inputArea").style.display="none";
+};
 
-    timeDisplay.innerHTML=message;
+window.onload=function(){
+  var myInput=document.createElement("input");
+  myInput.setAttribute("type","text");
+  myInput.setAttribute("id","minutes");
 
-    if(mySeconds===0){
-      chrome.tabs.update({activeTabId})
-    }
-    mySeconds--;
+  var myButton=document.createElement("input");
+  myButton.setAttribute("type","button");
+  myButton.setAttribute("value","submit");
 
-
-  }
-  function startCounter(){
-    var myInput=document.getElementById("minutes").value;
-    if (isNaN(myInput)){
-      alert("Type a valid number please");
-      return;
-    }
-    mySeconds=myInput*60;
-
-    intervalHandle=setInterval(tick, 1000);
-
-    document.getElementById("inputArea").style.display="none";
-
-
-  }
-  window.onload=function(){
-    var myInput=document.createElement("input");
-    myInput.setAttribute("type","text");
-    myInput.setAttribute("id","minutes");
-
-    var myButton=document.createElement("input");
-    myButton.setAttribute("type","button");
-    myButton.setAttribute("value","submit");
-
-    myButton.onclick=function(){
-      startCounter(); 
-
-    }
-    document.getElementById("Timer").appendChild(myInput);
-    document.getElementById("Timer").appendChild(myButton);
-
-
-  }
+  myButton.onclick=function(){
+    startCounter();
+  };
+  document.getElementById("Timer").appendChild(myInput);
+  document.getElementById("Timer").appendChild(myButton);
+};
 
