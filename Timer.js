@@ -26,7 +26,7 @@
     timeDisplay.innerHTML=message;
 
     if(mySeconds===0){
-      chrome.tabs.update(activeTabId)
+      chrome.tabs.update({activeTabId})
     }
     mySeconds--;
 
