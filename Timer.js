@@ -3,12 +3,11 @@
      var activeTabId = activeTab.url; 
 
   });
-
   var mySeconds;
   var intervalHandle;
 
   function resetPage(){
-    document.getElementById("Timer").style.display="none";  
+    document.getElementById("inputArea").style.display="none";  
     
     
   }
@@ -27,7 +26,9 @@
     timeDisplay.innerHTML=message;
     
     if(mySeconds===0){
-      chrome.tabs.update(activeTabId)
+      alert("Done");
+      clearInterval(intervalHandle);
+      resetPage();
     }
     mySeconds--;
     
@@ -56,14 +57,14 @@
     
     var myButton=document.createElement("input");
     myButton.setAttribute("type","button");
-    myButton.setAttribute("value","submit");
+    myButton.setAttribute("value","Start Timer");
     
     myButton.onclick=function(){
       startCounter(); 
       
     }
-    document.getElementById("Timer").appendChild(myInput);
-    document.getElementById("Timer").appendChild(myButton);
+    document.getElementById("inputArea").appendChild(myInput);
+    document.getElementById("inputArea").appendChild(myButton);
     
     
   }
