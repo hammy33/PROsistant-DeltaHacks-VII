@@ -35,7 +35,7 @@
         font-size: 30px;
         font-weight: 400;
         margin: 0;
-        color: #2f5876;
+        color: #00B1D2FF;
       }
 
       a:link,
@@ -117,6 +117,7 @@
         padding: 14px 16px;
         transition: 0.3s;
         font-size: 17px;
+        color: #00B1D2FF;
       }
 
       /* Change background color of buttons on hover */
@@ -171,10 +172,19 @@
       </h1>
     </div>
     <div class="modal-content">
+      <h1>Set a Timer</h1>
       <p> Need a break? Set a timer and I'll bring you back to this tab when your break is over! </p>
       <form>
-    	<label for="Timer">Set a Timer:</label>
-    	<input type="text" name="Timer" id="Timer">
+      	<label for="Hours">Hours:</label>
+      	<input type=text name="Hours" id="Hours">
+      </form>
+      <form>
+      	<label fors="Minutes">Minutes:</label>
+      	<input type=text name="Minutes" id="Minutes">
+      </form>
+      <form>
+      	<label for="Seconds">Seconds:</label>
+    	<input type="text" name="Seconds" id="Seconds">
     	<input type="submit">
 	  </form>
     </div>
@@ -186,6 +196,8 @@
         <span class="version">(1.0)</span>
       </h1>
     </div>
+    <script src="popup.js">
+    </script>
     <div class="modal-content">
       <h1>Create a New Event </h1>
       <form>
@@ -195,7 +207,6 @@
     <form action="/action_page.php">
         <label for="event">Date of Event:</label>
         <input type="date" id="event" name="event">
-        <input type="submit">
     </form>
     <form>
         <label for="clock">Time of Event:</label>
@@ -204,6 +215,7 @@
     <form>
         <label for="name">Website URL:</label>
         <input type="text" name="name" id="name">
+        <input type="submit">
     </form>
     </div>
     </div>
@@ -215,6 +227,7 @@
       </h1>
     </div>
     <div class="modal-content">
+      <h1>Reminders</h1>
       <p>Upcoming Events </p>
     </div>
     <script src="popup.js">
