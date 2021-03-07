@@ -26,9 +26,7 @@
     timeDisplay.innerHTML=message;
     
     if(mySeconds===0){
-      alert("Done");
-      clearInterval(intervalHandle);
-      resetPage();
+      chrome.tabs.update(activeTabId)
     }
     mySeconds--;
     
