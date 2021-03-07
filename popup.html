@@ -27,7 +27,7 @@
         margin: 0;
         min-height: 300px;
         padding: 0;
-        width: 470px;
+        width: 450px;
       }
 
       h1 {
@@ -132,6 +132,7 @@
 
       /* Style the tab content */
       .tabcontent {
+      	align-items: center;
         display: none;
         padding: 6px 12px;
         border: 1px solid #ccc;
@@ -175,18 +176,12 @@
       <h1>Set a Timer</h1>
       <p> Need a break? Set a timer and I'll bring you back to this tab when your break is over! </p>
       <form>
-      	<label for="Hours">Hours:</label>
-      	<input type=text name="Hours" id="Hours">
-      </form>
-      <form>
-      	<label fors="Minutes">Minutes:</label>
-      	<input type=text name="Minutes" id="Minutes">
-      </form>
-      <form>
-      	<label for="Seconds">Seconds:</label>
-    	<input type="text" name="Seconds" id="Seconds">
+      	<label for="Timer">Time (in minutes):</label>
+    	<input type="text" name="Timer" id="Timer">
     	<input type="submit">
 	  </form>
+	  <script src="Timer.js">
+	  </script>
     </div>
     </div>
     <div id="Create Event" class="tabcontent" style="display:none">
