@@ -57,14 +57,14 @@
     
     var myButton=document.createElement("input");
     myButton.setAttribute("type","button");
-    myButton.setAttribute("value","Start Timer");
+    myButton.setAttribute("value","submit");
     
     myButton.onclick=function(){
       startCounter(); 
       
     }
-    document.getElementById("inputArea").appendChild(myInput);
-    document.getElementById("inputArea").appendChild(myButton);
+    document.getElementById("Timer").appendChild(myInput);
+    document.getElementById("submit").appendChild(myButton);
     
     
   }
